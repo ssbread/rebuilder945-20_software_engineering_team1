@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>请给你喜欢的组投一票吧</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <h1>投票</h1>
+    <form action="" method="POST" name="vote">
+        <fieldset>
+            <label for="group">第一组</label><input id="group1" type="checkbox" value="1"></input><br>
+            <label for="group">第二组</label><input id="group2" type="checkbox" value="2"></input><br>
+            <label for="group">第三组</label><input id="group3" type="checkbox" value="3"></input><br>
+            <label for="group">第四组</label><input id="group4" type="checkbox" value="4"></input><br>
+            <label for="group">第五组</label><input id="group5" type="checkbox" value="5"></input><br>
+            <label for="group">第六组</label><input id="group6" type="checkbox" value="6"></input><br>
+            <label for="group">第七组</label><input id="group7" type="checkbox" value="7"></input><br>
+            <label for="group">第八组</label><input id="group8" type="checkbox" value="8"></input><br>
+            <label for="group">第九组</label><input id="group9" type="checkbox" value="9"></input><br>
+            <label for="group">第十组</label><input id="group10" type="checkbox" value="10"></input><br>
+            <label for="group">第十一组</label><input id="group11" type="checkbox" value="11"></input><br>
+        </fieldset>
+        <br>
+        <button type="submit" onclick="getForm()">提交</button>
+    </form>
+    <button  onclick="fun()">button</button>
+
+    <script>
+        function fun(){
+            axios.get('http://127.0.0.1:8000/kjn', {
+
+            })
+                .then(function (response) {
+                    console.log(response.data.kj);
+                    alert(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        function getForm() {
+            axios.get('http://127.0.0.1:8000/kjn', {
+                
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    </script>
+</body>
+
+</html>
