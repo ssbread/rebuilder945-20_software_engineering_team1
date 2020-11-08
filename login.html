@@ -85,6 +85,30 @@
             left: 0;
         }
     </style>
+	<script>
+         $("#saveUserInfo").click(function() {
+        var formObject = {};
+        var formArray =$("#userInfo").serializeArray();
+        $.each(formArray,function(i,item){
+            formObject[item.name] = item.value;
+        });
+        $.ajax({
+            url:"",
+            type:"post",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(formObject),
+            dataType: "json",
+            success:function(data){
+                alert(data.msg);
+            },
+            error:function(e){
+                alert("错误！！");
+            }
+        });
+    });
+
+    }
+    </script>
 </head>
 <body>
 <div class="show-login-btn">
@@ -95,11 +119,11 @@
     <div class="hide-login-btn">
         +
     </div>
-    <form action="index.html" method="POST" class="login-form">
+    <form action="index.html" method="POST" class="login-form" id="userInfo">
         <h1>Welcome</h1>
-        <input class="txtb" type="text" name="" placeholder="Username" />
-        <input class="txtb" type="password" name="" placeholder="Password" />
-        <input class="login-btn" type="submit" name="" value="Login" disabled />
+        <input class="txtb" type="text" name="student" placeholder="Username" /> /*学号*/
+        <input class="txtb" type="password" name="123456" placeholder="Password" /> /*密码*/
+        <input class="login-btn" type="submit" name="" value="Login" id="saveUserInfo" disabled />
     </form>
 </div>
 <script type="text/javascript">
